@@ -1,0 +1,734 @@
+{
+	"info": {
+		"_postman_id": "54a1026a-863e-48ed-a06f-490fdf5efe13",
+		"name": "trello",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "aco@test.com",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "aleksandar_1",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/1/authentication/register",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"1",
+						"authentication",
+						"register"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "aleksandar",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "aco@test.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "log in",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "name@test.com",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "aco@test.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/1/authentication/log-in",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"1",
+						"authentication",
+						"log-in"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create board",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authentication",
+						"value": "Authentication=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEzLCJpYXQiOjE2Mjg2MTIwOTYsImV4cCI6MTYyOTYxMjA5Nn0._9nxCMq_xXdsZcv8TbCRY2jsWo7qG6mxHiok7Sz-Nxc; HttpOnly; Path=/; Max-Age=1000000",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "testxy",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/1/boards/?name=Aleksandar's Board&description=example_description",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"1",
+						"boards",
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Aleksandar's Board"
+						},
+						{
+							"key": "idBoard",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "example_description"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update board",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "testxy",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/1/boards/2?description=example_description",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"1",
+						"boards",
+						"2"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "example_name123",
+							"disabled": true
+						},
+						{
+							"key": "idBoard",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "example_description"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all boards",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "testxy",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/boards",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"boards"
+					],
+					"query": [
+						{
+							"key": "idBoard",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get one board",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "testxy",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/1/boards/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"1",
+						"boards",
+						"1"
+					],
+					"query": [
+						{
+							"key": "idBoard",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete board",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/1/boards/2",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"1",
+						"boards",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create list",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "testxy",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/lists/?name=example_name&description=example_description&idBoard=4",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"lists",
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "example_name"
+						},
+						{
+							"key": "idBoard",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "example_description"
+						},
+						{
+							"key": "idBoard",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update list",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "testxy",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/1/lists/2?name=vvvv&idBoard=2",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"1",
+						"lists",
+						"2"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "vvvv"
+						},
+						{
+							"key": "idBoard",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all lists",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "testxy",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/lists/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"lists",
+						""
+					],
+					"query": [
+						{
+							"key": "idBoard",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get one list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "stjepanovicaco@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "coas",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/1/lists/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"1",
+						"lists",
+						"1"
+					],
+					"query": [
+						{
+							"key": "idBoard",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete list",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/1/lists/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"1",
+						"lists",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create card",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/1/cards/?name=alexander's card&idList=2",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"1",
+						"cards",
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "alexander's card"
+						},
+						{
+							"key": "desc",
+							"value": "example_description",
+							"disabled": true
+						},
+						{
+							"key": "idList",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete card",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/1/cards/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"1",
+						"cards",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update card",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/1/cards/1?name=alexander's card&idList=2",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"1",
+						"cards",
+						"1"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "alexander's card"
+						},
+						{
+							"key": "idList",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get card",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/1/cards/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"1",
+						"cards",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all comments for card",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/1/cards/1/actions",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"1",
+						"cards",
+						"1",
+						"actions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create comment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/1/cards/1/actions/comments?idCard=1&text=this is example text",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"1",
+						"cards",
+						"1",
+						"actions",
+						"comments"
+					],
+					"query": [
+						{
+							"key": "idCard",
+							"value": "1"
+						},
+						{
+							"key": "text",
+							"value": "this is example text"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update a comment",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/1/actions/1/text?text=this is the edited text",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"1",
+						"actions",
+						"1",
+						"text"
+					],
+					"query": [
+						{
+							"key": "idCard",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "text",
+							"value": "this is the edited text"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete a comment",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/1/actions/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"1",
+						"actions",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
